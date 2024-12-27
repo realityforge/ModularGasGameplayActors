@@ -29,7 +29,7 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasAIController : public AModularAICo
 public:
     explicit AModularGasAIController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
-    //~ Begin IAbilitySystemInterface Interface.
+    //~ Begin IAbilitySystemInterface Interface
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     //~ End IAbilitySystemInterface Interface
 

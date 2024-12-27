@@ -34,7 +34,7 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasGameStateBase :
 public:
     explicit AModularGasGameStateBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
-    //~ Begin IAbilitySystemInterface Interface.
+    //~ Begin IAbilitySystemInterface Interface
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     //~ End IAbilitySystemInterface Interface
 
@@ -56,7 +56,7 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasGameState : public AModularGameSta
 public:
     explicit AModularGasGameState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
-    //~ Begin IAbilitySystemInterface Interface.
+    //~ Begin IAbilitySystemInterface Interface
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     //~ End IAbilitySystemInterface Interface
 
