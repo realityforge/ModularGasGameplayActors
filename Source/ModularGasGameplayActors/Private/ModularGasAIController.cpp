@@ -17,9 +17,11 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(ModularGasAIController)
 
+const FName AModularGasAIController::NAME_AbilitySystemComponent("AbilitySystemComponent");
+
 AModularGasAIController::AModularGasAIController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
 }
 
 UAbilitySystemComponent* AModularGasAIController::GetAbilitySystemComponent() const

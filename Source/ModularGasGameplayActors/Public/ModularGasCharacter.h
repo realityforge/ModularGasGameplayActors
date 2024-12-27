@@ -29,6 +29,9 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasCharacter : public AModularCharact
 public:
     explicit AModularGasCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
+    /** The name of the AbilitySystemComponent component */
+    static const FName NAME_AbilitySystemComponent;
+
     //~ Begin IAbilitySystemInterface Interface
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     //~ End IAbilitySystemInterface Interface

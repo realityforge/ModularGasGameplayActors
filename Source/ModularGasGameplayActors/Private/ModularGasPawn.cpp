@@ -17,9 +17,11 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(ModularGasPawn)
 
+const FName AModularGasPawn::NAME_AbilitySystemComponent("AbilitySystemComponent");
+
 AModularGasPawn::AModularGasPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
 }
 
 UAbilitySystemComponent* AModularGasPawn::GetAbilitySystemComponent() const

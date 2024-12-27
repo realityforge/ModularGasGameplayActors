@@ -29,6 +29,9 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasPlayerState : public AModularPlaye
 public:
     explicit AModularGasPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
+    /** The name of the AbilitySystemComponent component */
+    static const FName NAME_AbilitySystemComponent;
+
     //~ Begin IAbilitySystemInterface Interface
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     //~ End IAbilitySystemInterface Interface

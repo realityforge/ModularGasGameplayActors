@@ -17,16 +17,20 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(ModularGasGameState)
 
+const FName AModularGasGameStateBase::NAME_AbilitySystemComponent("AbilitySystemComponent");
+
 AModularGasGameStateBase::AModularGasGameStateBase(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer)
 {
-    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
 }
 
 UAbilitySystemComponent* AModularGasGameStateBase::GetAbilitySystemComponent() const
 {
     return AbilitySystemComponent;
 }
+
+const FName AModularGasGameState::NAME_AbilitySystemComponent("AbilitySystemComponent");
 
 AModularGasGameState::AModularGasGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 
