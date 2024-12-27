@@ -32,7 +32,10 @@ UAbilitySystemComponent* AModularGasGameStateBase::GetAbilitySystemComponent() c
 
 const FName AModularGasGameState::NAME_AbilitySystemComponent("AbilitySystemComponent");
 
-AModularGasGameState::AModularGasGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
+AModularGasGameState::AModularGasGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+{
+    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
+}
 
 UAbilitySystemComponent* AModularGasGameState::GetAbilitySystemComponent() const
 {

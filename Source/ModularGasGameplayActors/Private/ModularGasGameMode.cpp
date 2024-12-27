@@ -45,6 +45,8 @@ AModularGasGameMode::AModularGasGameMode(const FObjectInitializer& ObjectInitial
     PlayerControllerClass = AModularGasPlayerController::StaticClass();
     PlayerStateClass = AModularGasPlayerState::StaticClass();
     DefaultPawnClass = AModularGasPawn::StaticClass();
+
+    AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
 }
 
 UAbilitySystemComponent* AModularGasGameMode::GetAbilitySystemComponent() const
