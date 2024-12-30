@@ -22,9 +22,9 @@
  * Pair this with a ModularGameStateBase
  */
 UCLASS(Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasGameStateBase
-    : public AModularGameStateBase,
-      public IAbilitySystemInterface
+class MODULARGASGAMEPLAYACTORS_API AModularGasGameStateBase :
+    public AModularGameStateBase,
+    public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
