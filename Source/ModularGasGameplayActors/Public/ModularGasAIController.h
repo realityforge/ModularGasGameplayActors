@@ -18,7 +18,7 @@
 #include "ModularGasAIController.generated.h"
 
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class MODULARGASGAMEPLAYACTORS_API AModularGasAIController : public AModularAIController, public IAbilitySystemInterface
 {
     GENERATED_BODY()

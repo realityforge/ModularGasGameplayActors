@@ -18,7 +18,7 @@
 #include "ModularGasPlayerState.generated.h"
 
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class MODULARGASGAMEPLAYACTORS_API AModularGasPlayerState : public AModularPlayerState, public IAbilitySystemInterface
 {
     GENERATED_BODY()

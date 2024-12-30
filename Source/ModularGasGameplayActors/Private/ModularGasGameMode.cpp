@@ -13,9 +13,6 @@
  */
 #include "ModularGasGameMode.h"
 #include "AbilitySystemComponent.h"
-#include "ModularGasGameState.h"
-#include "ModularGasPawn.h"
-#include "ModularGasPlayerController.h"
 #include "ModularGasPlayerState.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(ModularGasGameMode)
@@ -24,11 +21,6 @@ const FName AModularGasGameModeBase::NAME_AbilitySystemComponent("AbilitySystemC
 
 AModularGasGameModeBase::AModularGasGameModeBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-    GameStateClass = AModularGasGameStateBase::StaticClass();
-    PlayerControllerClass = AModularGasPlayerController::StaticClass();
-    PlayerStateClass = AModularGasPlayerState::StaticClass();
-    DefaultPawnClass = AModularGasPawn::StaticClass();
-
     AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
 }
 
@@ -41,11 +33,6 @@ const FName AModularGasGameMode::NAME_AbilitySystemComponent("AbilitySystemCompo
 
 AModularGasGameMode::AModularGasGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-    GameStateClass = AModularGasGameState::StaticClass();
-    PlayerControllerClass = AModularGasPlayerController::StaticClass();
-    PlayerStateClass = AModularGasPlayerState::StaticClass();
-    DefaultPawnClass = AModularGasPawn::StaticClass();
-
     AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(NAME_AbilitySystemComponent);
 }
 

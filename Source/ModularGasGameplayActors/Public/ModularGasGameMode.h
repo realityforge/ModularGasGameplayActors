@@ -18,7 +18,7 @@
 #include "ModularGasGameMode.generated.h"
 
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class MODULARGASGAMEPLAYACTORS_API AModularGasGameModeBase : public AModularGameModeBase, public IAbilitySystemInterface
 {
     GENERATED_BODY()
@@ -40,7 +40,7 @@ public:
 };
 
 /** Pair this with a ModularGameState */
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class MODULARGASGAMEPLAYACTORS_API AModularGasGameMode : public AModularGameMode, public IAbilitySystemInterface
 {
     GENERATED_BODY()

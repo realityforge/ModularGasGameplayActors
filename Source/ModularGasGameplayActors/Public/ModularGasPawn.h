@@ -18,7 +18,7 @@
 #include "ModularGasPawn.generated.h"
 
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class MODULARGASGAMEPLAYACTORS_API AModularGasPawn : public AModularPawn, public IAbilitySystemInterface
 {
     GENERATED_BODY()
