@@ -19,7 +19,7 @@ public class ModularGasGameplayActors : ModuleRules
     public ModularGasGameplayActors(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-        PublicDependencyModuleNames.AddRange(new string[] {
+        PublicDependencyModuleNames.AddRange(new[] {
             "Core",
             "CoreUObject",
             "Engine",
