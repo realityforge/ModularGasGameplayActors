@@ -63,7 +63,6 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasCharacter : public AModularCharact
      * The policy that determines which party owns the AbilitySystemComponent.
      *
      * This determines which object is specified as the Owner when invoking
-     *
      */
     UPROPERTY(EditDefaultsOnly,
               BlueprintReadOnly,
