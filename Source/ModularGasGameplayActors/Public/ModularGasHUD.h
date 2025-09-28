@@ -26,7 +26,7 @@ class AModularGasHUD : public AModularHUD
     GENERATED_BODY()
 
 protected:
-    //~AHUD interface
+#pragma region AHUD
 
     /**
      * Populates the provided actor list with all actors in the world that have a valid AbilitySystemComponent.
@@ -36,5 +36,5 @@ protected:
      * @param InOutList A reference to the array that will be populated with actors matching the criteria.
      */
     virtual void GetDebugActorList(TArray<AActor*>& InOutList) override;
-    //~End of AHUD interface
+#pragma endregion
 };
