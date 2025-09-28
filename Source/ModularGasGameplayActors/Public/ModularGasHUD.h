@@ -33,6 +33,9 @@ protected:
      * This method overrides the base implementation to specifically add actors associated
      * with an AbilitySystemComponent to the debug actor list.
      *
+     * These actors can be interacted with when using the HUD's debug features (such as when cycling through or
+     * inspecting actors via debug commands).
+     *
      * @param InOutList A reference to the array that will be populated with actors matching the criteria.
      */
     virtual void GetDebugActorList(TArray<AActor*>& InOutList) override;
