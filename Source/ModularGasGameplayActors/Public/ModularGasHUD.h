@@ -27,6 +27,14 @@ class AModularGasHUD : public AModularHUD
 
 protected:
     //~AHUD interface
+
+    /**
+     * Populates the provided actor list with all actors in the world that have a valid AbilitySystemComponent.
+     * This method overrides the base implementation to specifically add actors associated
+     * with an AbilitySystemComponent to the debug actor list.
+     *
+     * @param InOutList A reference to the array that will be populated with actors matching the criteria.
+     */
     virtual void GetDebugActorList(TArray<AActor*>& InOutList) override;
     //~End of AHUD interface
 };
