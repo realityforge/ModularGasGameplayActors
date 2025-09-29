@@ -21,7 +21,7 @@
  * Minimal class that is GAS enabled and supports extension by game feature plugins.
  * Pair this with a ModularGameStateBase
  */
-UCLASS(Blueprintable)
+UCLASS(Abstract, Blueprintable)
 class MODULARGASGAMEPLAYACTORS_API AModularGasGameStateBase :
     public AModularGameStateBase,
     public IAbilitySystemInterface
