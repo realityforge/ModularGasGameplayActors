@@ -21,7 +21,7 @@
  * to the DebugActorList.
  */
 UCLASS(Abstract, Blueprintable)
-class AModularGasHUD : public AModularHUD
+class MODULARGASGAMEPLAYACTORS_API AModularGasHUD : public AModularHUD
 {
     GENERATED_BODY()
 
