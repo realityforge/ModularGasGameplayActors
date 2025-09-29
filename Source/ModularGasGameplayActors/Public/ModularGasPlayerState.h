@@ -17,9 +17,11 @@
 #include "ModularPlayerState.h"
 #include "ModularGasPlayerState.generated.h"
 
+#define UE_API MODULARGASGAMEPLAYACTORS_API
+
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Abstract, Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasPlayerState : public AModularPlayerState, public IAbilitySystemInterface
+UCLASS(Abstract, MinimalAPI, Blueprintable)
+class AModularGasPlayerState : public AModularPlayerState, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
@@ -30,14 +32,16 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasPlayerState : public AModularPlaye
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    explicit AModularGasPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    UE_API explicit AModularGasPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    static const FName NAME_AbilitySystemComponent;
+    UE_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region IAbilitySystemInterface
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
+
+#undef UE_API

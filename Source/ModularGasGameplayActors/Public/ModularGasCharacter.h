@@ -17,6 +17,8 @@
 #include "ModularCharacter.h"
 #include "ModularGasCharacter.generated.h"
 
+#define UE_API MODULARGASGAMEPLAYACTORS_API
+
 /**
  * An enum that controls which object owns the AbilityStateComponent.
  */
@@ -54,8 +56,8 @@ enum class EAbilitySystemComponentSetupPolicy : uint8
 };
 
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Abstract, Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasCharacter : public AModularCharacter, public IAbilitySystemInterface
+UCLASS(Abstract, MinimalAPI, Blueprintable)
+class AModularGasCharacter : public AModularCharacter, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
@@ -111,29 +113,31 @@ protected:
         SetupPolicy = InSetupPolicy;
     }
 
-    virtual void InitAbilityActorInfo();
+    UE_API virtual void InitAbilityActorInfo();
 
-    virtual void ConfigureAbilitySystemComponent();
+    UE_API virtual void ConfigureAbilitySystemComponent();
 
 public:
-    explicit AModularGasCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    UE_API explicit AModularGasCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /**
      * The name of the AbilitySystemComponent component.
      * This is only relevant when the AbilitySystemComponentOwnerPolicy is CharacterOwned.
      */
-    static const FName NAME_AbilitySystemComponent;
+    UE_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region APawn
-    virtual void BeginPlay() override;
+    UE_API virtual void BeginPlay() override;
 
-    virtual void PossessedBy(AController* NewController) override;
-    virtual void OnRep_PlayerState() override;
+    UE_API virtual void PossessedBy(AController* NewController) override;
+    UE_API virtual void OnRep_PlayerState() override;
 #pragma endregion
 
 #pragma region IAbilitySystemInterface
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
+
+#undef UE_API

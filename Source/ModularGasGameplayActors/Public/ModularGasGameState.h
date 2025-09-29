@@ -17,14 +17,14 @@
 #include "ModularGameState.h"
 #include "ModularGasGameState.generated.h"
 
+#define UE_API MODULARGASGAMEPLAYACTORS_API
+
 /**
  * Minimal class that is GAS enabled and supports extension by game feature plugins.
  * Pair this with a ModularGameStateBase
  */
-UCLASS(Abstract, Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasGameStateBase :
-    public AModularGameStateBase,
-    public IAbilitySystemInterface
+UCLASS(Abstract, MinimalAPI, Blueprintable)
+class AModularGasGameStateBase : public AModularGameStateBase, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
@@ -35,13 +35,13 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasGameStateBase :
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    explicit AModularGasGameStateBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    UE_API explicit AModularGasGameStateBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    static const FName NAME_AbilitySystemComponent;
+    UE_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region IAbilitySystemInterface
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
@@ -51,8 +51,8 @@ public:
  * Minimal class that is GAS enabled and supports extension by game feature plugins.
  * Pair this with a ModularGameState
  */
-UCLASS(Abstract, Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasGameState : public AModularGameState, public IAbilitySystemInterface
+UCLASS(Abstract, MinimalAPI, Blueprintable)
+class AModularGasGameState : public AModularGameState, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
@@ -63,14 +63,16 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasGameState : public AModularGameSta
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    explicit AModularGasGameState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    UE_API explicit AModularGasGameState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    static const FName NAME_AbilitySystemComponent;
+    UE_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region IAbilitySystemInterface
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
+
+#undef UE_API

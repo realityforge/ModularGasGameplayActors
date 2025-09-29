@@ -17,9 +17,11 @@
 #include "ModularGameMode.h"
 #include "ModularGasGameMode.generated.h"
 
+#define UE_API MODULARGASGAMEPLAYACTORS_API
+
 /** Minimal class that is GAS enabled and supports extension by game feature plugins */
-UCLASS(Abstract, Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasGameModeBase : public AModularGameModeBase, public IAbilitySystemInterface
+UCLASS(Abstract, MinimalAPI, Blueprintable)
+class AModularGasGameModeBase : public AModularGameModeBase, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
@@ -30,21 +32,21 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasGameModeBase : public AModularGame
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    explicit AModularGasGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    UE_API explicit AModularGasGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    static const FName NAME_AbilitySystemComponent;
+    UE_API static const FName NAME_AbilitySystemComponent;
 
-    //~ Begin IAbilitySystemInterface Interface
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-    //~ End IAbilitySystemInterface Interface
+#pragma region IAbilitySystemInterface
+    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+#pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
 
 /** Pair this with a ModularGameState */
-UCLASS(Abstract, Blueprintable)
-class MODULARGASGAMEPLAYACTORS_API AModularGasGameMode : public AModularGameMode, public IAbilitySystemInterface
+UCLASS(Abstract, MinimalAPI, Blueprintable)
+class AModularGasGameMode : public AModularGameMode, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
@@ -55,14 +57,16 @@ class MODULARGASGAMEPLAYACTORS_API AModularGasGameMode : public AModularGameMode
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    explicit AModularGasGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    UE_API explicit AModularGasGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    static const FName NAME_AbilitySystemComponent;
+    UE_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region IAbilitySystemInterface
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
+
+#undef UE_API
