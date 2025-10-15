@@ -16,8 +16,6 @@
 #include "ModularHUD.h"
 #include "ModularGasHUD.generated.h"
 
-#define UE_API MODULARGASGAMEPLAYACTORS_API
-
 /**
  * Minimal class that supports extension by game feature plugins and adds all Actors with an AbilitySystemComponent
  * to the DebugActorList.
@@ -40,8 +38,6 @@ protected:
      *
      * @param InOutList A reference to the array that will be populated with actors matching the criteria.
      */
-    UE_API virtual void GetDebugActorList(TArray<AActor*>& InOutList) override;
+    MODULARGASGAMEPLAYACTORS_API virtual void GetDebugActorList(TArray<AActor*>& InOutList) override;
 #pragma endregion
 };
-
-#undef UE_API

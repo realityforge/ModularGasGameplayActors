@@ -17,8 +17,6 @@
 #include "ModularGameState.h"
 #include "ModularGasGameState.generated.h"
 
-#define UE_API MODULARGASGAMEPLAYACTORS_API
-
 /**
  * Minimal class that is GAS enabled and supports extension by game feature plugins.
  * Pair this with a ModularGameStateBase
@@ -35,13 +33,14 @@ class AModularGasGameStateBase : public AModularGameStateBase, public IAbilitySy
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    UE_API explicit AModularGasGameStateBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    MODULARGASGAMEPLAYACTORS_API explicit AModularGasGameStateBase(
+        const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    UE_API static const FName NAME_AbilitySystemComponent;
+    MODULARGASGAMEPLAYACTORS_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region IAbilitySystemInterface
-    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    MODULARGASGAMEPLAYACTORS_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
@@ -63,16 +62,15 @@ class AModularGasGameState : public AModularGameState, public IAbilitySystemInte
     TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent{ nullptr };
 
 public:
-    UE_API explicit AModularGasGameState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    MODULARGASGAMEPLAYACTORS_API explicit AModularGasGameState(
+        const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /** The name of the AbilitySystemComponent component */
-    UE_API static const FName NAME_AbilitySystemComponent;
+    MODULARGASGAMEPLAYACTORS_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region IAbilitySystemInterface
-    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    MODULARGASGAMEPLAYACTORS_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
-
-#undef UE_API

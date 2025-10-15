@@ -17,8 +17,6 @@
 #include "ModularCharacter.h"
 #include "ModularGasCharacter.generated.h"
 
-#define UE_API MODULARGASGAMEPLAYACTORS_API
-
 /**
  * An enum that controls which object owns the AbilityStateComponent.
  */
@@ -113,31 +111,30 @@ protected:
         SetupPolicy = InSetupPolicy;
     }
 
-    UE_API virtual void InitAbilityActorInfo();
+    MODULARGASGAMEPLAYACTORS_API virtual void InitAbilityActorInfo();
 
-    UE_API virtual void ConfigureAbilitySystemComponent();
+    MODULARGASGAMEPLAYACTORS_API virtual void ConfigureAbilitySystemComponent();
 
 public:
-    UE_API explicit AModularGasCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+    MODULARGASGAMEPLAYACTORS_API explicit AModularGasCharacter(
+        const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
     /**
      * The name of the AbilitySystemComponent component.
      * This is only relevant when the AbilitySystemComponentOwnerPolicy is CharacterOwned.
      */
-    UE_API static const FName NAME_AbilitySystemComponent;
+    MODULARGASGAMEPLAYACTORS_API static const FName NAME_AbilitySystemComponent;
 
 #pragma region APawn
-    UE_API virtual void BeginPlay() override;
+    MODULARGASGAMEPLAYACTORS_API virtual void BeginPlay() override;
 
-    UE_API virtual void PossessedBy(AController* NewController) override;
-    UE_API virtual void OnRep_PlayerState() override;
+    MODULARGASGAMEPLAYACTORS_API virtual void PossessedBy(AController* NewController) override;
+    MODULARGASGAMEPLAYACTORS_API virtual void OnRep_PlayerState() override;
 #pragma endregion
 
 #pragma region IAbilitySystemInterface
-    UE_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    MODULARGASGAMEPLAYACTORS_API virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 #pragma endregion
 
     FORCEINLINE UAbilitySystemComponent* GetAbilitySystemComponentFast() const { return AbilitySystemComponent; }
 };
-
-#undef UE_API
