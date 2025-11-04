@@ -55,7 +55,12 @@ void AModularGasCharacter::InitAbilityActorInfo()
     }
 }
 
-void AModularGasCharacter::ConfigureAbilitySystemComponent() {}
+void AModularGasCharacter::ConfigureAbilitySystemComponent()
+{
+    PostInitializeAbilitySystem();
+}
+
+void AModularGasCharacter::PostInitializeAbilitySystem() {}
 
 void AModularGasCharacter::BeginPlay()
 {

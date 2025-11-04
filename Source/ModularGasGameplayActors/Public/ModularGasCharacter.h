@@ -113,7 +113,19 @@ protected:
 
     MODULARGASGAMEPLAYACTORS_API virtual void InitAbilityActorInfo();
 
+    /**
+     * Invoked to perform the custom configuration of the AbilitySystemComponent.
+     * MUST call PostInitializeAbilitySystem() when configuration is complete.
+     */
     MODULARGASGAMEPLAYACTORS_API virtual void ConfigureAbilitySystemComponent();
+
+    /**
+     *  Invoked after the AbilitySystemComponent has been initialized and configured.
+     *  This is invoked by when configuration is complete ConfigureAbilitySystemComponent(). This may
+     *  be at the end of the method if the configuration process is synchronous or at the end of the asynchronous
+     *  operation if the configuration process is asynchronous.
+     */
+    MODULARGASGAMEPLAYACTORS_API virtual void PostInitializeAbilitySystem();
 
 public:
     MODULARGASGAMEPLAYACTORS_API explicit AModularGasCharacter(
